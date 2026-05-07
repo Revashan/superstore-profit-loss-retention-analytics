@@ -71,3 +71,6 @@ The Power BI `.pbix` files in `powerbi/` can be opened directly in Power BI Desk
 ## Data Source
 
 [Superstore Sales Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) — a commonly used retail analytics dataset covering orders across the US and global markets from 2011–2014.
+
+## Author
+Revathy Shanmugaraj

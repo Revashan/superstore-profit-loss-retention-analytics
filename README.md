@@ -1,73 +1,73 @@
-# superstore-profit-loss-retention-analytics
-# Superstore Profit, Loss and Product Retention Analytics
+# Superstore Profit, Loss & Retention Analytics
 
-## Project Overview
+End-to-end data analytics project using the Superstore dataset — covering data ingestion, cleaning, exploratory analysis, and an interactive Power BI dashboard.
 
-This project analyzes retail transaction data from the Superstore dataset to uncover key business insights related to:
+## Project Structure
 
-- Profitability across products and regions
-- Loss-making products and categories
-- Customer purchase retention
-- Sales performance trends
+```
+├── data/
+│   ├── raw/                  # Original superstore CSV
+│   └── cleaned/              # Cleaned parquet + CSV outputs
+├── notebooks/
+│   ├── 01_ingest_and_clean.ipynb
+│   └── 02_profit_loss_retention_analysis.ipynb
+├── powerbi/
+│   ├── profit_loss_dashboard.pbix
+│   └── exec dash.pbix
+├── reports/                  # Exported HTML reports
+└── sql/                      # SQL queries (WIP)
+```
 
-The objective is to demonstrate a full analytics workflow including:
+## Notebooks
 
-Data ingestion  
-Data cleaning  
-SQL-based analysis  
-Python exploratory analysis  
-Power BI dashboard creation  
+**01 — Ingest & Clean**
+- Loads raw CSV (51,290 rows, 27 columns)
+- Standardises column names and data types
+- Outputs clean dataset to `data/cleaned/` as both `.parquet` and `.csv`
 
-This project simulates a real-world business intelligence project used by retail companies to monitor sales performance and optimize product strategy.
+**02 — Profit, Loss & Retention Analysis**
+- KPI summary: revenue, profit, loss, margin
+- Profit/loss breakdown by category, sub-category, region, and segment
+- Discount vs margin relationship
+- Repeat customer rate (retention proxy)
+- Product repeat purchase signals
 
----
+## Key Metrics (from cleaned dataset)
 
-## Dataset
+| Metric | Value |
+|---|---|
+| Total Revenue | $12,642,905 |
+| Total Profit | $1,467,457 |
+| Total Loss (abs) | $920,646 |
+| Profit Margin | 11.6% |
+| Unique Orders | 25,035 |
+| Unique Customers | 4,873 |
 
-Dataset Source: Kaggle Superstore Dataset
+Top performing sub-categories by profit: Copiers, Phones, Bookcases, Appliances, Chairs.
 
-The dataset contains order-level retail sales data including:
+## Power BI Dashboard
 
-- Order Date
-- Customer ID
-- Product Category
-- Product Name
-- Sales
-- Quantity
-- Discount
-- Profit
-- Region
-- Segment
+![Profit & Loss Dashboard](https://raw.githubusercontent.com/Revashan/superstore-profit-loss-retention-data-analytics/main/powerbi/Profit-loss-superstore-dashboard.png)
 
-Total Records: ~9994 transactions
+## Stack
 
----
+- Python (pandas, numpy)
+- Jupyter Notebooks
+- Power BI
+- Parquet (via pyarrow/fastparquet)
 
-## Tools Used
+## Getting Started
 
-Python (Pandas, Matplotlib, Seaborn)  
-SQL (SQLite / PostgreSQL compatible queries)  
-Power BI for business dashboards  
-Jupyter Notebook for analysis  
-GitHub for version control
+```bash
+pip install pandas numpy pyarrow jupyter
 
---
+# Run notebooks in order
+jupyter notebook notebooks/01_ingest_and_clean.ipynb
+jupyter notebook notebooks/02_profit_loss_retention_analysis.ipynb
+```
 
-## Key Insights
+The Power BI `.pbix` files in `powerbi/` can be opened directly in Power BI Desktop and pointed at `data/cleaned/superstore_clean.csv`.
 
-• Technology category generates the highest profit margin  
-• Tables and Bookcases produce consistent losses  
-• West region drives highest revenue  
-• High discount levels correlate strongly with negative profit  
+## Data Source
 
-## Business Impact
-
-This analysis helps retail organizations:
-
-• Identify loss-making products  
-• Improve pricing strategies  
-• Optimize inventory planning  
-• Improve customer retention  
-
-## Author
-   Revathy
+[Superstore Sales Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) — a commonly used retail analytics dataset covering orders across the US and global markets from 2011–2014.

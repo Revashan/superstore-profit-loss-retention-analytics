@@ -6,16 +6,16 @@ End-to-end data analytics project using the Superstore dataset — covering data
 
 ```
 ├── data/
-│   ├── raw/                  # Original superstore CSV
-│   └── cleaned/              # Cleaned parquet + CSV outputs
+│   ├── raw/                 
+│   └── cleaned/              
 ├── notebooks/
 │   ├── 01_ingest_and_clean.ipynb
 │   └── 02_profit_loss_retention_analysis.ipynb
 ├── powerbi/
 │   ├── profit_loss_dashboard.pbix
 │   └── exec dash.pbix
-├── reports/                  # Exported HTML reports
-└── sql/                      # SQL queries (WIP)
+├── reports/                  
+└── sql/                      
 ```
 
 ## Notebooks

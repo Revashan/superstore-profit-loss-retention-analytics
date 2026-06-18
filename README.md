@@ -93,7 +93,7 @@ Retail businesses often track top-line revenue without understanding what is act
 
 ## Power BI Dashboard
 
-[![Profit & Loss Dashboard](powerbi/screenshots/superstore_profit_loss_dashboard.png
+[![Profit & Loss Dashboard](powerbi/screenshots/superstore_profit_loss_dashboard.png)
 
 Dashboard covers: revenue and profit by category · sub-category margin ranking · discount impact chart · region performance · repeat purchase rate · monthly trend.
 
